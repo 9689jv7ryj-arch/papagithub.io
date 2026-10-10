@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10152d"><title>Дастан: легенда семьи</title>
+<style>
+:root{--bg:#10152d;--panel:#1b2242;--panel2:#242d54;--gold:#ffd166;--pink:#ff7b9c;--mint:#80f0c0;--white:#f7f7ff;--muted:#b8c0e8}*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--white);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(ellipse at top,#30396c 0%,var(--bg) 58%);display:flex;justify-content:center;align-items:center;padding:18px;overflow-x:hidden}.stars{position:fixed;inset:0;pointer-events:none;opacity:.45;background-image:radial-gradient(#fff 1px,transparent 1px),radial-gradient(#ffd166 1px,transparent 1px);background-size:61px 61px,97px 97px;background-position:0 0,30px 50px}.game{position:relative;width:min(100%,720px);border:2px solid #58649b;border-radius:26px;background:linear-gradient(160deg,rgba(35,44,83,.97),rgba(19,24,50,.98));box-shadow:0 20px 70px #0008;overflow:hidden}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid #ffffff1c;color:var(--muted);font-size:.88rem}.brand{font-weight:900;letter-spacing:.08em;color:var(--gold)}.stats{display:flex;gap:12px}.stat{white-space:nowrap}.content{padding:clamp(22px,5vw,42px);text-align:center}.pixel{font-size:clamp(3.5rem,13vw,6.5rem);line-height:1.15;filter:drop-shadow(0 7px 0 #0003);margin:10px 0 18px;animation:bob 2.3s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-7px)}}h1{font-size:clamp(2rem,7vw,3.4rem);line-height:1.04;margin:8px 0 14px}h2{font-size:clamp(1.5rem,5vw,2.1rem);margin:8px 0 12px}.gold{color:var(--gold)}.pink{color:var(--pink)}p{color:var(--muted);line-height:1.65;font-size:1.02rem;max-width:540px;margin:10px auto 20px}.tag{display:inline-block;padding:6px 12px;border-radius:99px;background:#ffd1661a;border:1px solid #ffd16666;color:var(--gold);font-weight:750;font-size:.8rem;letter-spacing:.04em}.btns{display:grid;gap:10px;margin:22px auto 0;max-width:470px}.btn{border:0;border-radius:14px;padding:15px 18px;font:inherit;font-weight:800;color:#171a31;background:var(--gold);cursor:pointer;transition:transform .15s,filter .15s;box-shadow:0 5px 0 #b9872d;text-align:center}.btn:hover{filter:brightness(1.06);transform:translateY(-2px)}.btn:active{transform:translateY(2px);box-shadow:0 2px 0 #b9872d}.btn.alt{background:var(--panel2);color:var(--white);box-shadow:0 5px 0 #12172e;border:1px solid #59649b}.btn.pinkbtn{background:var(--pink);box-shadow:0 5px 0 #a63f62}.progress{height:8px;background:#ffffff16;border-radius:99px;overflow:hidden;flex:1;max-width:200px}.bar{height:100%;background:linear-gradient(90deg,var(--pink),var(--gold));width:0;transition:width .35s}.progressrow{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:.82rem;margin-bottom:22px}.question{font-size:1.25rem;font-weight:850;line-height:1.4;margin:16px auto;max-width:530px}.feedback{min-height:32px;margin:14px 0 0;font-weight:750;color:var(--mint)}.tiny{font-size:.83rem;color:#9da8d8;margin-top:22px}.hidden{display:none!important}.letter{padding:20px;text-align:left;border-radius:18px;background:#fff9e9;color:#252744;line-height:1.8;box-shadow:inset 0 0 0 2px #ffd166}.letter p{color:#454763;margin:10px 0;max-width:none}.letter strong{color:#ad4260}.footer{padding:0 20px 18px;text-align:center;color:#7883b5;font-size:.75rem}.confetti{position:fixed;top:-20px;z-index:10;pointer-events:none;animation:fall 3.5s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}.sound{font-size:.8rem;color:var(--muted);margin-top:12px}
+.room-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px auto;max-width:540px}
+.room-object{min-height:105px;padding:12px 6px;border:2px solid #58649b;border-radius:12px;background:linear-gradient(160deg,#30396c,#1b2242);color:var(--white);font:inherit;cursor:pointer;box-shadow:0 4px 0 #10152d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.room-object span{font-size:2.1rem;line-height:1.1}.room-object b{font-size:.85rem}.room-object:active{transform:translateY(2px);box-shadow:0 2px 0 #10152d}.room-object.found{border-color:var(--mint);background:#1c493f}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+@media(max-width:420px){body{padding:8px}.top{padding:12px;font-size:.78rem}.stats{gap:7px}.room-grid{gap:7px}.room-object{min-height:88px}.room-object span{font-size:1.8rem}.room-object b{font-size:.75rem}}
+</style></head>
+<body><div class="stars"></div><main class="game"><div class="top"><div class="brand">★ DASTAN QUEST</div><div class="stats"><div class="stat">⭐ <span id="score">0</span></div><div class="stat">❤️ <span id="hearts">3</span></div></div></div>
+<section class="content" id="screen-start"><div class="tag">СПЕЦИАЛЬНЫЙ ВЫПУСК · ДЕНЬ РОЖДЕНИЯ</div><div class="pixel">🦸‍♂️🎂</div><h1><span class="gold">Дастан:</span><br>легенда семьи</h1><p>Одна игра. Три уровня. Один главный герой. Сегодня тебе предстоит доказать, что ты не просто папа, а человек с прокачанными навыками, легендарными шутками и суперсилой заботы.</p><div class="btns"><button class="btn" onclick="startGame()">▶ НАЧАТЬ ПРИКЛЮЧЕНИЕ</button><button class="btn alt" onclick="showRules()">Как играть?</button></div><div class="tiny">⚠️ Возможны внезапные улыбки и семейные объятия.</div></section>
+<section class="content hidden" id="screen-rules"><div class="pixel">🕹️</div><h2>Правила миссии</h2><p>Проходи уровни, выбирай ответы и собирай звёзды. Тут нет проигравших — это игра, где главный приз уже выиграл вся семья: у вас есть папа Дастан.</p><div class="btns"><button class="btn" onclick="startGame()">Понятно, погнали!</button><button class="btn alt" onclick="showScreen('screen-start')">Назад</button></div></section>
+<section class="content hidden" id="screen-game"><div class="progressrow"><span id="level-label">УРОВЕНЬ 1 ИЗ 3</span><div class="progress"><div class="bar" id="bar"></div></div></div><div class="tag" id="level-tag">РАЗМИНКА ГЕРОЯ</div><div class="pixel" id="game-emoji">🧠</div><h2 id="level-title">Папа или Google?</h2><div class="question" id="question"></div><div class="btns" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div><div class="tiny" id="question-count"></div></section>
+<section class="content hidden" id="screen-transition"><div class="pixel" id="trans-emoji">🏆</div><div class="tag">УРОВЕНЬ ПРОЙДЕН</div><h2 id="trans-title">Красавчик!</h2><p id="trans-text"></p><div class="btns"><button class="btn" id="trans-btn" onclick="nextLevel()">К СЛЕДУЮЩЕМУ УРОВНЮ →</button></div></section>
+
+<section class="content hidden" id="screen-room">
+  <div class="tag">УРОВЕНЬ 3 · СЕКРЕТНЫЙ ПОДАРОК</div>
+  <div class="pixel">🎁🏠</div>
+  <h2>Найди семейные подсказки!</h2>
+  <p>Нажимай на предметы в комнате. Найди 3 настоящие подсказки, чтобы открыть подарок ❤️</p>
+  <div class="room-grid">
+    <button class="room-object" onclick="findClue('tv')"><span>📺</span><b>Телевизор</b></button>
+    <button class="room-object" onclick="findClue('clothes')"><span>👔</span><b>Шкаф</b></button>
+    <button class="room-object" onclick="findClue('sofa')"><span>🛋️</span><b>Диван</b></button>
+    <button class="room-object" onclick="findClue('family')"><span>🖼️</span><b>Фото семьи</b></button>
+    <button class="room-object" onclick="findClue('toilet')"><span>🚽</span><b>Дверь</b></button>
+    <button class="room-object" onclick="findClue('fart')"><span>💨</span><b>Сюрприз</b></button>
+  </div>
+  <div class="feedback" id="clue-feedback" aria-live="polite"></div>
+  <div class="progressrow"><span id="clue-count">Найдено подсказок: 0 из 3</span></div>
+  <div class="btns"><button class="btn" id="gift-btn" disabled onclick="openGift()">🎁 Открыть подарок</button></div>
+</section>
+
+<section class="content hidden" id="screen-finale"><div class="tag">МИССИЯ ВЫПОЛНЕНА</div><div class="pixel">👑🎉❤️</div><h1>Папа, ты —<br><span class="gold">легенда!</span></h1><p>Все уровни пройдены. Звание «Главный герой семьи» официально твоё.</p><div class="letter"><h2>Дорогой папа, Дастан! ❤️</h2><p>С днём рождения, папа! Ты самый лучший папа! Я хочу пожелать тебе никогда не расстраиваться, всегда находить время на отдых и радоваться каждому моменту. Пусть здоровье никогда не подводит, а дома всегда ждут уют, тепло и бесконечная любовь.</p></div><div class="btns"><button class="btn pinkbtn" onclick="celebrate()">🎉 ЕЩЁ ПРАЗДНИЧНЕЕ!</button><button class="btn alt" onclick="restart()">↻ Играть заново</button><button class="btn alt" onclick="copyGreeting()">📋 Скопировать поздравление</button></div><div class="tiny" id="copy-status"></div></section>
+<div class="footer">Сделано с любовью специально для папы Дастана ✦</div></main>
+<script>
+const levels=[
+ {title:'Ты точно папа Дастан?',tag:'УРОВЕНЬ 1 · СЕМЕЙНАЯ ПРОВЕРКА',emoji:'🧠',intro:'Шесть вопросов о папе Дастане. Тут чужие не справятся 😎',questions:[
+ {q:'Как папа Дастан стучится в дверь?',a:['Один раз и сразу заходит','Три раза','Стучит много раз','Вообще не стучит'],ok:1,good:'Три удара. Ни два, ни четыре! 🚪'},
+ {q:'Что папа больше всего ценит дома?',a:['Когда дома спокойно и тихо','Когда дома гости','Когда включена громко музыка','Когда мама устраивает хайвай'],ok:0,good:'Тссс. Папин режим тишины активирован 🤫'},
+ {q:'Что может увлечь папу на целый день?',a:['Спорт-каналы','Тикток, YouTube, Instagram','Новости','Советские сериалы'],ok:3,good:'Папа — главный фанат канала «Победа»!! 📺'},
+ {q:'Что происходит, когда папа заходит в магазин одежды?',a:['Покупает первую попавшуюся вещь','Примеряет одежду и устраивает показ мод','Ждёт, пока мама выберет ему вещи сама','Не примеряет ничего и не покупает'],ok:1,good:'Внимание! На подиуме — папа Дастан! 👔'},
+ {q:'Как семья иногда шутит над папой?',a:['Что он самый высокий','Что он баскетболист','Что он ниже мамы','Что он живёт на диване'],ok:2,good:'Вот такая семейная шутка 😂'},
+ {q:'Какова главная суперспособность папы Дастана?',a:['Починить всё в доме','Сохранять спокойствие, когда вокруг хайвай','Узнать все советские сериалы','Любить больше всех Амину 🥰'],ok:3,good:'Секретная суперсила подтверждена: папина любовь к Амине бесконечна! ❤️'}]},
+ {title:'Угадай семейное воспоминание',tag:'УРОВЕНЬ 2 · СЕМЕЙНЫЙ АРХИВ',emoji:'📸',intro:'Пять историй, которые точно войдут в семейную легенду 😄',questions:[
+ {q:'Что однажды папа Дастан случайно отправил не туда?',a:['Пульт от телевизора','Мамину кружку','Мамин телефон','Свои ключи'],ok:2,good:'Папа, это же микроволновка! 📱'},
+ {q:'Куда однажды упал папин телефон?',a:['Под диван','В туалет','В кастрюлю','В карман мамы'],ok:1,good:'Где только не был папин телефон 😂'},
+ {q:'Какой семейный отпуск стал вашим первым?',a:['Египет','Турция','Иссык-Куль','Алаколь'],ok:0,good:'Семейные приключения в Египте! 🌴'},
+ {q:'Какое одно воспоминание с папой Амина считает самым дорогим?',a:['Поход в магазин одежды','Просмотр советского сериала','Только отпуск в Египте','Не один отдельный момент — дорогих воспоминаний много'],ok:3,good:'❤️ Самые дорогие воспоминания не помещаются в один момент.'},
+ {q:'Кто в вашей семье постоянно становится героем историй, которые потом вспоминают?',a:['Только папа','Только Ажар','Только Ернур','Все понемногу'],ok:3,good:'В этой семье каждый — главный герой ❤️'}]},
+];
+let levelIndex=0,qIndex=0,score=0,hearts=3,locked=false;const $=id=>document.getElementById(id);
+function showScreen(id){document.querySelectorAll('.content').forEach(s=>s.classList.add('hidden'));$(id).classList.remove('hidden')}
+function startGame(){score=0;hearts=3;levelIndex=0;qIndex=0;updateStats();loadQuestion();showScreen('screen-game')}
+function updateStats(){$('score').textContent=score;$('hearts').textContent='❤️'.repeat(hearts)||'0'}
+function loadQuestion(){locked=false;let l=levels[levelIndex],q=l.questions[qIndex];$('level-label').textContent=`УРОВЕНЬ ${levelIndex+1} ИЗ 3`;$('bar').style.width=`${((qIndex+1)/l.questions.length)*100}%`;$('level-tag').textContent=l.tag;$('game-emoji').textContent=l.emoji;$('level-title').textContent=l.title;$('question').textContent=q.q;$('feedback').textContent='';$('question-count').textContent=`Вопрос ${qIndex+1} из ${l.questions.length}`;let box=$('answers');box.innerHTML='';q.a.forEach((answer,i)=>{let b=document.createElement('button');b.className='btn alt';b.textContent=answer;b.onclick=()=>answerQuestion(i);box.appendChild(b)})}
+function answerQuestion(i){if(locked)return;locked=true;let q=levels[levelIndex].questions[qIndex];let buttons=[...$('answers').children];buttons.forEach((b,j)=>{b.disabled=true;b.style.opacity=j===q.ok?'1':'.58';if(j===q.ok){b.style.borderColor='#80f0c0';b.style.color='#80f0c0'}});if(i===q.ok){score+=100;$('feedback').textContent='✓ '+q.good}else{hearts=Math.max(0,hearts-1);$('feedback').textContent='😄 Не страшно! Правильный ответ: '+q.a[q.ok];}updateStats();let b=document.createElement('button');b.className='btn';b.style.marginTop='12px';b.textContent=qIndex<levels[levelIndex].questions.length-1?'Следующий вопрос →':levelIndex<2?'Завершить уровень →':'Открыть финал ❤️';b.onclick=advance; $('answers').appendChild(b)}
+function advance(){if(qIndex<levels[levelIndex].questions.length-1){qIndex++;loadQuestion()}else{$('trans-emoji').textContent=levelIndex===0?'🏆':'🛠️';$('trans-title').textContent=levelIndex===0?'Разминка пройдена!':'Миссия выполнена!';$('trans-text').textContent=levelIndex===0?'Папина репутация растёт. Впереди семейный архив!':'Ты доказал: папа — мастер, опора и источник семейных приколов.';$('trans-btn').textContent='К СЕКРЕТНОМУ ПОДАРКУ →';showScreen('screen-transition')}}
+function nextLevel(){if(levelIndex===0){levelIndex=1;qIndex=0;loadQuestion();showScreen('screen-game')}else{clues.clear();document.querySelectorAll('.room-object').forEach(b=>b.classList.remove('found'));$('clue-feedback').textContent='';$('clue-count').textContent='Найдено подсказок: 0 из 3';$('gift-btn').disabled=true;showScreen('screen-room')}}
+const clues=new Set();
+const clueText={
+ tv:'Папины вечера с любимыми советскими сериалами — семейная классика!',
+ clothes:'Папа не просто выбирает одежду. Он устраивает настоящий показ мод!',
+ sofa:'Тут папа мечтает о тишине… но всё равно любит свою шумную семью.',
+ family:'Самое важное сокровище — семья: Амина, Ажар, Ернур и папа.'
+};
+function findClue(which){
+ if(which==='toilet'){ $('clue-feedback').textContent=''; return; }
+ if(which==='fart'){ $('clue-feedback').textContent='Лучше громко пукнуть чем предательский навонять'; return; }
+ $('clue-feedback').textContent=clueText[which];
+ clues.add(which);
+ const buttons=[...document.querySelectorAll('.room-object')];
+ const idx={tv:0,clothes:1,sofa:2,family:3}[which];
+ buttons[idx].classList.add('found');
+ $('clue-count').textContent=`Найдено подсказок: ${clues.size} из 3`;
+ $('gift-btn').disabled=clues.size<3;
+}
+function openGift(){if(clues.size<3)return;showScreen('screen-finale');celebrate()}
+function showRules(){showScreen('screen-rules')}
+function restart(){startGame()}
+function celebrate(){const emojis=['🎉','✨','💛','🎂','❤️','⭐','🎊'];for(let i=0;i<65;i++){let e=document.createElement('div');e.className='confetti';e.textContent=emojis[Math.floor(Math.random()*emojis.length)];e.style.left=Math.random()*100+'vw';e.style.fontSize=(16+Math.random()*22)+'px';e.style.animationDuration=(2+Math.random()*3)+'s';e.style.animationDelay=Math.random()*.7+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),6000)}}
+async function copyGreeting(){let t='С днём рождения, папа! Ты самый лучший папа! Я хочу пожелать тебе никогда не расстраиваться, всегда находить время на отдых и радоваться каждому моменту. Пусть здоровье никогда не подводит, а дома всегда ждут уют, тепло и бесконечная любовь.';try{await navigator.clipboard.writeText(t);$('copy-status').textContent='Поздравление скопировано! ❤️'}catch(e){$('copy-status').textContent='Скопируй поздравление вручную.'}}
+</script></body></html>
